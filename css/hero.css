@@ -1,0 +1,147 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--sp-24) + var(--sp-8)) var(--sp-6) var(--sp-16);
+  background:
+    radial-gradient(ellipse 60% 50% at 18% 12%, rgba(20, 19, 18, 0.05), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 88% 92%, rgba(20, 19, 18, 0.04), transparent 60%),
+    var(--c-bg);
+}
+
+.hero-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 50% 30%, transparent 55%, rgba(250, 250, 248, 0.9) 100%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+  margin-bottom: var(--sp-6);
+}
+
+.eyebrow-rule {
+  height: 1px;
+  width: 28px;
+  background: var(--c-line-2);
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.75rem, 1.8rem + 4.2vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--c-ink);
+}
+
+.hero-copy-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: var(--sp-10);
+  max-width: var(--copy-max);
+  text-align: left;
+}
+
+.hero-copy {
+  position: relative;
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--c-ink-soft);
+}
+
+/* physics render layer: character spans get positioned here once JS decomposes #hero-copy */
+.hero-copy-physics {
+  position: relative;
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--c-ink-soft);
+}
+
+.hero-copy-physics .ch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: pre;
+  will-change: auto;
+}
+
+.hero-copy-physics .ch.is-active {
+  will-change: transform;
+}
+
+/* hide the real cursor over the hero on fine-pointer devices once the swarm is running */
+.hero.swarm-active {
+  cursor: none;
+}
+
+.hero-swarm {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.swarm-token {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(-999px, -999px, 0);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink);
+  white-space: nowrap;
+  transition: opacity 0.25s var(--ease-out-expo);
+}
+
+.hero-scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-16);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--c-ink-faint);
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.hero-scroll-cue:hover {
+  color: var(--c-ink);
+}
+
+.hero-scroll-cue svg {
+  animation: hero-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-cue svg {
+    animation: none;
+  }
+}

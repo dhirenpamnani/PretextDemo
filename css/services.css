@@ -1,0 +1,124 @@
+.services {
+  padding: var(--sp-24) 0;
+  background: var(--c-bg);
+}
+
+.services .section-eyebrow,
+.services .section-title,
+.services .section-lede {
+  text-align: left;
+}
+
+.services-grid {
+  margin-top: var(--sp-16);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1px;
+  background: var(--c-line);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 980px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  background: var(--c-white);
+  padding: var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transition: transform var(--dur-med) var(--ease-out-expo),
+    box-shadow var(--dur-med) var(--ease-out-expo);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  z-index: 1;
+}
+
+.service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--c-bg-alt);
+  color: var(--c-ink);
+}
+
+.service-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.service-card p {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--c-ink-soft);
+}
+
+/* ---- approach section ---- */
+.approach {
+  padding: var(--sp-24) 0;
+  background: var(--c-bg-alt);
+  border-top: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.approach-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-16);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .approach-inner {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.approach-copy .section-eyebrow,
+.approach-copy .section-title,
+.approach-copy .section-lede {
+  text-align: left;
+}
+
+.approach-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-8) var(--sp-6);
+}
+
+.stat dt {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem);
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.stat dd {
+  margin-top: var(--sp-1);
+  font-size: 0.85rem;
+  color: var(--c-ink-soft);
+}

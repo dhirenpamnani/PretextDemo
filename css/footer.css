@@ -1,0 +1,140 @@
+.footer {
+  background: var(--c-black);
+  color: var(--c-white-soft);
+}
+
+.footer-inner {
+  padding: var(--sp-24) 0 var(--sp-16);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-12);
+}
+
+@media (min-width: 640px) {
+  .footer-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 980px) {
+  .footer-inner {
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  }
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.wordmark-footer {
+  color: var(--c-white);
+}
+
+.wordmark-footer .wordmark-amp {
+  color: var(--c-white-faint);
+}
+
+.footer-brand p {
+  max-width: 32ch;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--c-white-faint);
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--c-white-soft);
+  transition: border-color var(--dur-fast) var(--ease-out-expo),
+    color var(--dur-fast) var(--ease-out-expo);
+}
+
+.footer-social a:hover {
+  border-color: var(--c-white);
+  color: var(--c-white);
+}
+
+.footer-social svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.footer-col h4 {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-white-faint);
+  margin-bottom: var(--sp-2);
+}
+
+.footer-col a {
+  font-size: 0.9rem;
+  color: var(--c-white-soft);
+  transition: color var(--dur-fast) var(--ease-out-expo);
+  width: fit-content;
+}
+
+.footer-col a:hover {
+  color: var(--c-white);
+}
+
+.footer-address {
+  font-size: 0.9rem;
+  color: var(--c-white-faint);
+  line-height: 1.6;
+  margin-top: var(--sp-2);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-inner {
+  padding: var(--sp-6) 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-size: 0.8rem;
+  color: var(--c-white-faint);
+}
+
+.footer-trust {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-legal {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.footer-legal a {
+  color: var(--c-white-faint);
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.footer-legal a:hover {
+  color: var(--c-white);
+}
